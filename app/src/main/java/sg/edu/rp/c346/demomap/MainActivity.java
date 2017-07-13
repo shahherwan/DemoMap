@@ -1,5 +1,7 @@
 package sg.edu.rp.c346.demomap;
 
+import android.Manifest;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.PermissionChecker;
@@ -47,14 +49,34 @@ public class MainActivity extends AppCompatActivity {
                 ui.setCompassEnabled(true);
                 ui.setZoomControlsEnabled(true);
 
+//                int permissionCheck = PermissionChecker.checkSelfPermission
+//                        (MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION);
+//
+//                if (permissionCheck != PermissionChecker.PERMISSION_GRANTED) {
+//                    ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0
+//                            );
+//                    map.setMyLocationEnabled(true);
+//                    // stops the action from proceeding further as permission not
+//                    //  granted yet
+//                    return;
+//                }
+
                 int permissionCheck = ContextCompat.checkSelfPermission(MainActivity.this,
                         android.Manifest.permission.ACCESS_FINE_LOCATION);
 
-                if (permissionCheck == PermissionChecker.PERMISSION_GRANTED) {
-                    map.setMyLocationEnabled(true);
-                } else {
-                    Log.e("GMap - Permission", "GPS access has not been granted");
-                }
+//                if (permissionCheck != PermissionChecker.PERMISSION_GRANTED) {
+//                    ActivityCompat.requestPermissions(MainActivity.this,
+//                            new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
+//                    // stops the action from proceeding further as permission not
+//                    //  granted yet
+//                    return;
+//                }
+
+//                if (permissionCheck == PermissionChecker.PERMISSION_GRANTED) {
+//                    map.setMyLocationEnabled(true);
+//                } else {
+//                    Log.e("GMap - Permission", "GPS access has not been granted");
+//                }
 
 //                LatLng poi_CausewayPoint = new LatLng(1.436065, 103.786263);
                 Marker cp = map.addMarker(new
